@@ -1,0 +1,38 @@
+{
+  "failure": {
+    "loaded": 4,
+    "failed": [
+      "arisa"
+    ],
+    "renderFrames": 21
+  },
+  "director": [
+    "wide",
+    "center",
+    "left",
+    "vocal",
+    "right",
+    "sweep",
+    "audience",
+    "orbit",
+    "low",
+    "wide"
+  ],
+  "motion": {
+    "min": 0.8586976362157751,
+    "max": 1.0851476097106934,
+    "footRoot": 0.6
+  },
+  "dispose": {
+    "disposed": true,
+    "render": {
+      "geometries": 0,
+      "textures": 1
+    }
+  },
+  "mobileDefault": {
+    "preset": "low",
+    "dpr": 1,
+    "audience": 40
+  }
+}

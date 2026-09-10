@@ -1,0 +1,110 @@
+{
+  "single": {
+    "id": "fixture0",
+    "paused": true,
+    "wants": false
+  },
+  "loopOne": {
+    "id": "fixture0",
+    "time": 0.010666666666666658
+  },
+  "sequential": {
+    "id": "fixture2",
+    "paused": true,
+    "wants": false
+  },
+  "loopPlaylist": true,
+  "pausedNavigation": {
+    "id": "fixture0",
+    "paused": true
+  },
+  "sync": {
+    "changes": [
+      {
+        "song": "fixture0",
+        "bpm": 90,
+        "offset": 0.05,
+        "generation": 3,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture0",
+        "bpm": 90,
+        "offset": 0.05,
+        "generation": 4,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture0",
+        "bpm": 90,
+        "offset": 0.05,
+        "generation": 5,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture1",
+        "bpm": 160,
+        "offset": 0.12,
+        "generation": 6,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture2",
+        "bpm": 210,
+        "offset": 0.21,
+        "generation": 7,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture2",
+        "bpm": 210,
+        "offset": 0.21,
+        "generation": 8,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture0",
+        "bpm": 90,
+        "offset": 0.05,
+        "generation": 9,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture1",
+        "bpm": 160,
+        "offset": 0.12,
+        "generation": 10,
+        "energy": 0,
+        "running": false
+      },
+      {
+        "song": "fixture0",
+        "bpm": 90,
+        "offset": 0.05,
+        "generation": 11,
+        "energy": 0,
+        "running": false
+      }
+    ],
+    "nativeEnds": 6,
+    "sameScene": true,
+    "sameCamera": true,
+    "sameRenderer": true,
+    "sameModels": true,
+    "extraLoads": 0
+  },
+  "cancelledResume": {
+    "paused": true,
+    "wants": false
+  },
+  "mobileOverflow": false,
+  "modePersisted": "loopPlaylist",
+  "errors": []
+}

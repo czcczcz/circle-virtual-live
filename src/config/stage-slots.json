@@ -1,0 +1,77 @@
+[
+  {
+    "id": "kasumi",
+    "name": "户山香澄",
+    "role": "主唱 / 星形吉他",
+    "color": "#ff527f",
+    "position": [
+      0,
+      0,
+      0.3
+    ],
+    "height": 2.6,
+    "beatStrength": 1,
+    "delay": 0,
+    "rotation": 0
+  },
+  {
+    "id": "arisa",
+    "name": "市谷有咲",
+    "role": "键盘",
+    "color": "#b58aff",
+    "position": [
+      2,
+      0,
+      -2
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.009,
+    "rotation": 0
+  },
+  {
+    "id": "otae",
+    "name": "花园多惠",
+    "role": "电吉他",
+    "color": "#528cff",
+    "position": [
+      -3,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.018,
+    "rotation": 0
+  },
+  {
+    "id": "rimi",
+    "name": "牛込里美",
+    "role": "贝斯",
+    "color": "#ff80c6",
+    "position": [
+      3,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.026999999999999996,
+    "rotation": 0
+  },
+  {
+    "id": "saya",
+    "name": "山吹沙绫",
+    "role": "架子鼓",
+    "color": "#ffcc55",
+    "position": [
+      -1.6,
+      0,
+      -2.1
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.036,
+    "rotation": 0
+  }
+]

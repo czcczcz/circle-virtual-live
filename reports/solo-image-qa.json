@@ -1,0 +1,23 @@
+{
+  "image": {
+    "images": 2,
+    "all": 5,
+    "refs": 2,
+    "transparent": true,
+    "billboard": true
+  },
+  "manual": {
+    "visible": true,
+    "swings": 1,
+    "playing": true,
+    "angle": -0.23456263803430272
+  },
+  "auto": {
+    "interval": 2,
+    "beat": 4.552888888888889,
+    "angle": -0.8953227748364562
+  },
+  "released": true,
+  "mobileOverflow": false,
+  "errors": []
+}

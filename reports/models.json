@@ -1,0 +1,442 @@
+[
+  {
+    "file": "Amoris.glb",
+    "bytes": 21129820,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99967,
+    "vertices": 71504,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 12040136,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "95e310757a6a50eef2e50fbef3abefbf6e4144f6c2b75fe45bfc1f244a5284d5"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 5600176,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "ff3a87034f4e87838dc23e1abb81239ff97f4c6c8f7acc94928b4c1dcaa96f08"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3487732
+  },
+  {
+    "file": "Doloris.glb",
+    "bytes": 25250356,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 100006,
+    "vertices": 77552,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 13223684,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "d53074b388576df8874ab566071de619928c5029342e12ff2c106d62d9595469"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 8343120,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "670c4c7af0bd86d0998be4fe9ac12866aeb5a3b64457f279b735dc5a08835a99"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3681736
+  },
+  {
+    "file": "Mortis.glb",
+    "bytes": 24138380,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99973,
+    "vertices": 80691,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 12281232,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "e26c02d150b468d22c58202d4521ab7fd9399d2cd1dd42f4eb3ec3f283b0e759"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 8073584,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "7df2571c13cb50dbfb55058f6f5d8c3dfbf8393feeebfcbb41c4caf1e85bd84b"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3781788
+  },
+  {
+    "file": "Oblivionis.glb",
+    "bytes": 25952060,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99993,
+    "vertices": 78422,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 12818484,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "1c9508d8cbc17f24361a586d363ac819264808c9f2b6285efe9b9fd7d0a72b9c"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 9422340,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "2af950637f25343e517d5109315bbcba3ed3d4247eae731786edde879878c547"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3709420
+  },
+  {
+    "file": "Timoris.glb",
+    "bytes": 31961776,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99994,
+    "vertices": 68215,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 19071268,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "f65326bd9b01b9c3a02fbe65461a7fa2618b61cc54ffbc89ba941dcc2c3b60f0"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 9505888,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "30481996f747a7faa23a42cb8499d49f14a9eaa9fbb8a887e972571ccb331b7e"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3382808
+  },
+  {
+    "file": "arisa.glb",
+    "bytes": 30242032,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99977,
+    "vertices": 79838,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 19071920,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "e3a31e25a65c8302f1ef21b3ed3a7b6fe932d1d50df33bc1d92180786a8b088c"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 7413760,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "e63661604a3e384bfc029231bc4c6f7b14937d18bf527ac5299421584bc3eaaa"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3754540
+  },
+  {
+    "file": "kasumi.glb",
+    "bytes": 26317008,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99992,
+    "vertices": 80329,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 14741876,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "b032d6572b4b185b4ba0ad1b7b38361437c8d92d6bd6cfc33cf52761cf06c121"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 7802884,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "afa0b42af93f279cfe9fe762272de5e7982935f1162a7e57278bd47088f97855"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3770432
+  },
+  {
+    "file": "otae.glb",
+    "bytes": 31329568,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99994,
+    "vertices": 75050,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 17396332,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "ac44e70622571016c1f1c7acb70cb19d76da437a92f5301d2b656602661326e3"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 10329892,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "da87db481a201ff1f2f8304a5ac21550dbe85e998e3c3e534f22fb1e308c91cc"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3601528
+  },
+  {
+    "file": "rimi.glb",
+    "bytes": 31419588,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99990,
+    "vertices": 77224,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 19384880,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "6d1af2873bf477547374c45454f38f13a051bbe0e8adf5a323b2acaadd751e5d"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 8361844,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "f9f551659ddfcc3b0a0a7723a3a9acbf3744b8dfb31fb4b23ba31380db8bfba4"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3671048
+  },
+  {
+    "file": "saya.glb",
+    "bytes": 28937964,
+    "nodes": 2,
+    "meshes": 1,
+    "primitives": 1,
+    "triangles": 99994,
+    "vertices": 75995,
+    "attributes": [
+      "POSITION",
+      "TEXCOORD_0",
+      "NORMAL"
+    ],
+    "morphTargets": 0,
+    "materials": 1,
+    "unusedMaterials": [],
+    "duplicateMaterialCount": 0,
+    "textures": 2,
+    "images": [
+      {
+        "index": 0,
+        "mime": "image/png",
+        "bytes": 17618092,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "e3ef37dea6943456b81e3be422edf3bde816ec7833c3cc0ad6f56543628c71c0"
+      },
+      {
+        "index": 1,
+        "mime": "image/png",
+        "bytes": 7686328,
+        "width": 4096,
+        "height": 4096,
+        "decodedRGBABytes": 67108864,
+        "hash": "1dc39c748b14d194de0dfa834f6bcca2562dc1991031235cbb4e9b8cc5c55707"
+      }
+    ],
+    "duplicateImageCount": 0,
+    "skins": 0,
+    "animations": [],
+    "extensions": [],
+    "geometryBufferBytes": 3631768
+  }
+]

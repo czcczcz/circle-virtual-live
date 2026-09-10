@@ -1,0 +1,74 @@
+{
+  "ground": {
+    "maxError": 1.428015594662213e-9,
+    "ranges": {
+      "kasumi": {
+        "min": 0.84375,
+        "max": 1.09375
+      },
+      "arisa": {
+        "min": 0.8897238415527344,
+        "max": 1.060130799560547
+      },
+      "otae": {
+        "min": 0.8899484198250728,
+        "max": 1.0640344218112
+      },
+      "rimi": {
+        "min": 0.9070650422740524,
+        "max": 1.0669960424368
+      },
+      "saya": {
+        "min": 0.9288510903790087,
+        "max": 1.066195
+      }
+    }
+  },
+  "shared": {
+    "sameGeometry": true,
+    "refs": 2
+  },
+  "empty": {
+    "count": 4,
+    "instrumentVisible": false
+  },
+  "restore": {
+    "count": 4,
+    "model": "kasumi"
+  },
+  "firstPerson": {
+    "before": [
+      0,
+      1.65,
+      5.5
+    ],
+    "after": [
+      0,
+      1.65,
+      4.311680000000001
+    ],
+    "mode": "firstperson"
+  },
+  "free": {
+    "before": 3.3,
+    "after": 4.182839999999999
+  },
+  "hidden": {
+    "hidden": true,
+    "visibleOverlays": 0
+  },
+  "restoredUI": true,
+  "upload": {
+    "title": "测试歌曲 <b>不会执行</b>",
+    "bpm": 123,
+    "offset": 0.2,
+    "blob": true,
+    "custom": true
+  },
+  "localPlayback": true,
+  "songPersisted": true,
+  "edited": true,
+  "deleted": true,
+  "mobileOverflow": false,
+  "errors": []
+}

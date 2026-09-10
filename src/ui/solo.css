@@ -1,0 +1,78 @@
+#solo-call {
+  position: fixed;
+  right: 48px;
+  bottom: 380px;
+  display: grid;
+  gap: 8px;
+  text-align: right;
+  z-index: 5;
+}
+#solo-call button {
+  justify-self: end;
+  border: 1px solid #ff81c277;
+  border-radius: 30px;
+  padding: 12px 23px;
+  background: #582342dd;
+  color: #fff;
+  cursor: pointer;
+}
+#solo-call small {
+  color: #d4b7ce;
+  font-size: 10px;
+}
+#solo-call[hidden],
+.ui-hidden #solo-call {
+  display: none;
+}
+@media (max-width: 700px) {
+  #solo-call {
+    right: 20px;
+    bottom: 370px;
+  }
+  #solo-call small {
+    max-width: 110px;
+  }
+}
+#rhythm-feedback {
+  position: fixed;
+  top: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  text-align: center;
+  display: grid;
+  gap: 7px;
+  padding: 12px 20px;
+  border: 1px solid #ff94d533;
+  border-radius: 12px;
+  background: #211323b8;
+  pointer-events: none;
+  max-width: calc(100vw - 40px);
+  width: max-content;
+}
+#rhythm-feedback strong {
+  color: #ffc0e2;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+}
+#rhythm-feedback span {
+  color: #fff;
+  font-size: 12px;
+}
+#rhythm-feedback small {
+  color: #c6aec3;
+  font-size: 10px;
+}
+#rhythm-feedback[hidden],
+.ui-hidden #rhythm-feedback {
+  display: none;
+}
+@media (max-width: 700px) {
+  #rhythm-feedback {
+    top: 80px;
+    padding: 10px;
+  }
+  #rhythm-feedback strong {
+    font-size: 18px;
+  }
+}

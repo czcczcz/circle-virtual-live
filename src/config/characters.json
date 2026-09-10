@@ -1,0 +1,172 @@
+[
+  {
+    "id": "kasumi",
+    "name": "户山香澄",
+    "role": "主唱 / 星形吉他",
+    "color": "#ff527f",
+    "position": [
+      0,
+      0,
+      0.3
+    ],
+    "height": 2.6,
+    "beatStrength": 1,
+    "delay": 0,
+    "rotation": 0,
+    "model": "/3D_model_optimized/kasumi.glb",
+    "original": "/3D_model/kasumi.glb"
+  },
+  {
+    "id": "Amoris",
+    "name": "Amoris",
+    "role": "Guest",
+    "color": "#9bfff0",
+    "position": [
+      -2,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.009,
+    "rotation": 0,
+    "model": "/3D_model_optimized/Amoris.glb",
+    "original": "/3D_model/Amoris.glb"
+  },
+  {
+    "id": "arisa",
+    "name": "市谷有咲",
+    "role": "键盘",
+    "color": "#b58aff",
+    "position": [
+      2,
+      0,
+      -2
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.009,
+    "rotation": 0,
+    "model": "/3D_model_optimized/arisa.glb",
+    "original": "/3D_model/arisa.glb"
+  },
+  {
+    "id": "Doloris",
+    "name": "Doloris",
+    "role": "Guest",
+    "color": "#9bfff0",
+    "position": [
+      2,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.026999999999999996,
+    "rotation": 0,
+    "model": "/3D_model_optimized/Doloris.glb",
+    "original": "/3D_model/Doloris.glb"
+  },
+  {
+    "id": "Mortis",
+    "name": "Mortis",
+    "role": "Guest",
+    "color": "#9bfff0",
+    "position": [
+      4,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.036,
+    "rotation": 0,
+    "model": "/3D_model_optimized/Mortis.glb",
+    "original": "/3D_model/Mortis.glb"
+  },
+  {
+    "id": "Oblivionis",
+    "name": "Oblivionis",
+    "role": "Guest",
+    "color": "#9bfff0",
+    "position": [
+      6,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.045,
+    "rotation": 0,
+    "model": "/3D_model_optimized/Oblivionis.glb",
+    "original": "/3D_model/Oblivionis.glb"
+  },
+  {
+    "id": "otae",
+    "name": "花园多惠",
+    "role": "电吉他",
+    "color": "#528cff",
+    "position": [
+      -3,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.018,
+    "rotation": 0,
+    "model": "/3D_model_optimized/otae.glb",
+    "original": "/3D_model/otae.glb"
+  },
+  {
+    "id": "rimi",
+    "name": "牛込里美",
+    "role": "贝斯",
+    "color": "#ff80c6",
+    "position": [
+      3,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.026999999999999996,
+    "rotation": 0,
+    "model": "/3D_model_optimized/rimi.glb",
+    "original": "/3D_model/rimi.glb"
+  },
+  {
+    "id": "saya",
+    "name": "山吹沙绫",
+    "role": "架子鼓",
+    "color": "#ffcc55",
+    "position": [
+      -1.6,
+      0,
+      -2.1
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.036,
+    "rotation": 0,
+    "model": "/3D_model_optimized/saya.glb",
+    "original": "/3D_model/saya.glb"
+  },
+  {
+    "id": "Timoris",
+    "name": "Timoris",
+    "role": "Guest",
+    "color": "#9bfff0",
+    "position": [
+      14,
+      0,
+      0
+    ],
+    "height": 2.6,
+    "beatStrength": 0.72,
+    "delay": 0.08099999999999999,
+    "rotation": 0,
+    "model": "/3D_model_optimized/Timoris.glb",
+    "original": "/3D_model/Timoris.glb"
+  }
+]

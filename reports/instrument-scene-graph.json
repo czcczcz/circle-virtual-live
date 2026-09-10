@@ -1,0 +1,320 @@
+[
+  {
+    "file": "arisa.glb",
+    "nodes": [
+      {
+        "index": 0,
+        "name": "world",
+        "parent": -1,
+        "children": [
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "name": "mesh",
+        "parent": 0,
+        "children": [],
+        "mesh": 0
+      }
+    ],
+    "meshes": [
+      {
+        "name": "mesh",
+        "primitives": [
+          {
+            "material": 0,
+            "attributes": {
+              "POSITION": 1,
+              "TEXCOORD_0": 2,
+              "NORMAL": 3
+            },
+            "vertices": 79838,
+            "bounds": {
+              "min": [
+                -0.5,
+                -0.4697330594062805,
+                -0.22990301251411438
+              ],
+              "max": [
+                0.5,
+                0.4697330594062805,
+                0.22990301251411438
+              ]
+            },
+            "indices": 299931
+          }
+        ]
+      }
+    ],
+    "materials": [
+      "Material_0"
+    ],
+    "conclusion": "Single combined body mesh; no independently identifiable instrument node. Cannot safely isolate instrument from merged mesh."
+  },
+  {
+    "file": "kasumi.glb",
+    "nodes": [
+      {
+        "index": 0,
+        "name": "world",
+        "parent": -1,
+        "children": [
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "name": "mesh",
+        "parent": 0,
+        "children": [],
+        "mesh": 0
+      }
+    ],
+    "meshes": [
+      {
+        "name": "mesh",
+        "primitives": [
+          {
+            "material": 0,
+            "attributes": {
+              "POSITION": 1,
+              "TEXCOORD_0": 2,
+              "NORMAL": 3
+            },
+            "vertices": 80329,
+            "bounds": {
+              "min": [
+                -0.4456619620323181,
+                -0.5,
+                -0.31869998574256897
+              ],
+              "max": [
+                0.4456619918346405,
+                0.5,
+                0.31869998574256897
+              ]
+            },
+            "indices": 299976
+          }
+        ]
+      }
+    ],
+    "materials": [
+      "Material_0"
+    ],
+    "conclusion": "Single combined body mesh; no independently identifiable instrument node. Cannot safely isolate instrument from merged mesh."
+  },
+  {
+    "file": "otae.glb",
+    "nodes": [
+      {
+        "index": 0,
+        "name": "world",
+        "parent": -1,
+        "children": [
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "name": "mesh",
+        "parent": 0,
+        "children": [],
+        "mesh": 0
+      }
+    ],
+    "meshes": [
+      {
+        "name": "mesh",
+        "primitives": [
+          {
+            "material": 0,
+            "attributes": {
+              "POSITION": 1,
+              "TEXCOORD_0": 2,
+              "NORMAL": 3
+            },
+            "vertices": 75050,
+            "bounds": {
+              "min": [
+                -0.3936860263347626,
+                -0.5,
+                -0.34164100885391235
+              ],
+              "max": [
+                0.3936860263347626,
+                0.5,
+                0.34164097905158997
+              ]
+            },
+            "indices": 299982
+          }
+        ]
+      }
+    ],
+    "materials": [
+      "Material_0"
+    ],
+    "conclusion": "Single combined body mesh; no independently identifiable instrument node. Cannot safely isolate instrument from merged mesh."
+  },
+  {
+    "file": "rimi.glb",
+    "nodes": [
+      {
+        "index": 0,
+        "name": "world",
+        "parent": -1,
+        "children": [
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "name": "mesh",
+        "parent": 0,
+        "children": [],
+        "mesh": 0
+      }
+    ],
+    "meshes": [
+      {
+        "name": "mesh",
+        "primitives": [
+          {
+            "material": 0,
+            "attributes": {
+              "POSITION": 1,
+              "TEXCOORD_0": 2,
+              "NORMAL": 3
+            },
+            "vertices": 77224,
+            "bounds": {
+              "min": [
+                -0.40932005643844604,
+                -0.5,
+                -0.3401139974594116
+              ],
+              "max": [
+                0.40931999683380127,
+                0.5,
+                0.3401139974594116
+              ]
+            },
+            "indices": 299970
+          }
+        ]
+      }
+    ],
+    "materials": [
+      "Material_0"
+    ],
+    "conclusion": "Single combined body mesh; no independently identifiable instrument node. Cannot safely isolate instrument from merged mesh."
+  },
+  {
+    "file": "saki_ave.glb",
+    "nodes": [
+      {
+        "index": 0,
+        "name": "world",
+        "parent": -1,
+        "children": [
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "name": "mesh",
+        "parent": 0,
+        "children": [],
+        "mesh": 0
+      }
+    ],
+    "meshes": [
+      {
+        "name": "mesh",
+        "primitives": [
+          {
+            "material": 0,
+            "attributes": {
+              "POSITION": 1,
+              "TEXCOORD_0": 2,
+              "NORMAL": 3
+            },
+            "vertices": 78422,
+            "bounds": {
+              "min": [
+                -0.47529706358909607,
+                -0.5,
+                -0.41710299253463745
+              ],
+              "max": [
+                0.4752970039844513,
+                0.5,
+                0.41710299253463745
+              ]
+            },
+            "indices": 299979
+          }
+        ]
+      }
+    ],
+    "materials": [
+      "Material_0"
+    ],
+    "conclusion": "Single combined body mesh; no independently identifiable instrument node. Cannot safely isolate instrument from merged mesh."
+  },
+  {
+    "file": "saya.glb",
+    "nodes": [
+      {
+        "index": 0,
+        "name": "world",
+        "parent": -1,
+        "children": [
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "name": "mesh",
+        "parent": 0,
+        "children": [],
+        "mesh": 0
+      }
+    ],
+    "meshes": [
+      {
+        "name": "mesh",
+        "primitives": [
+          {
+            "material": 0,
+            "attributes": {
+              "POSITION": 1,
+              "TEXCOORD_0": 2,
+              "NORMAL": 3
+            },
+            "vertices": 75995,
+            "bounds": {
+              "min": [
+                -0.3572160601615906,
+                -0.5,
+                -0.24950602650642395
+              ],
+              "max": [
+                0.3572160005569458,
+                0.5,
+                0.24950602650642395
+              ]
+            },
+            "indices": 299982
+          }
+        ]
+      }
+    ],
+    "materials": [
+      "Material_0"
+    ],
+    "conclusion": "Single combined body mesh; no independently identifiable instrument node. Cannot safely isolate instrument from merged mesh."
+  }
+]

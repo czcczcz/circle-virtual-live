@@ -1,0 +1,30 @@
+{
+  "name": "circle-virtual-live",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "analyze": "node scripts/analyze-models.mjs",
+    "manifest": "node scripts/generate-manifest.mjs",
+    "optimize": "node scripts/optimize-models.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.2.0",
+    "@gltf-transform/extensions": "^4.2.0",
+    "@gltf-transform/functions": "^4.2.0",
+    "@playwright/test": "^1.55.0",
+    "meshoptimizer": "^0.25.0",
+    "prettier": "^3.9.6",
+    "sharp": "^0.35.4",
+    "vite": "^7.1.0"
+  }
+}

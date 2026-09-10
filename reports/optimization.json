@@ -1,0 +1,82 @@
+[
+  {
+    "file": "Amoris.glb",
+    "before": 21129820,
+    "after": 1300540,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "Doloris.glb",
+    "before": 25250356,
+    "after": 1448852,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "Mortis.glb",
+    "before": 24138380,
+    "after": 1497936,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "Oblivionis.glb",
+    "before": 25952060,
+    "after": 1498492,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "Timoris.glb",
+    "before": 31961776,
+    "after": 1441300,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "arisa.glb",
+    "before": 30242032,
+    "after": 1548532,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "kasumi.glb",
+    "before": 26317008,
+    "after": 1563312,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "otae.glb",
+    "before": 31329568,
+    "after": 1561332,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "rimi.glb",
+    "before": 31419588,
+    "after": 1580788,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  },
+  {
+    "file": "saya.glb",
+    "before": 28937964,
+    "after": 1521168,
+    "textureMax": 1024,
+    "format": "WebP",
+    "geometry": "EXT_meshopt_compression"
+  }
+]

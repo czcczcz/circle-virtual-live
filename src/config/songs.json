@@ -1,0 +1,16 @@
+[
+  {
+    "id": "popipa",
+    "title": "Poppin’Party Live",
+    "file": "/music/popipa.mp3",
+    "bpm": 130,
+    "offset": 0
+  },
+  {
+    "id": "pengyoudejiu",
+    "title": "朋友的酒",
+    "file": "/music/pengyoudejiu.mp3",
+    "bpm": 130,
+    "offset": 0
+  }
+]

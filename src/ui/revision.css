@@ -1,0 +1,308 @@
+/* Chinese controls and library panels extend the original responsive concert overlay. */
+.member small,
+.loading,
+.camera-label {
+  font-size: 10px;
+}
+.member > span {
+  font-size: 12px;
+}
+.song-info small {
+  font-size: 10px;
+}
+footer {
+  font-size: 9px;
+}
+.micro {
+  font-size: 9px;
+}
+.eyebrow {
+  font-size: 10px;
+}
+.nav-action {
+  font-size: 11px;
+  color: #cebacf;
+  padding: 7px 1px;
+  white-space: nowrap;
+}
+nav {
+  gap: 16px;
+}
+.settings {
+  width: 360px;
+  max-height: calc(100dvh - 115px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #86516c #211a2a;
+}
+.settings label {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.settings input:not([type="range"]),
+.settings select {
+  font-size: 12px;
+  min-height: 36px;
+}
+.settings input[type="text"],
+.settings input:not([type]),
+.settings input[type="file"] {
+  display: block;
+  width: 100%;
+  background: #2b2136;
+  color: #f8eafb;
+  border: 1px solid #ffffff19;
+  border-radius: 5px;
+  padding: 9px;
+  margin-top: 8px;
+}
+.settings input[type="file"] {
+  font-size: 10px;
+}
+.settings input[type="file"]::file-selector-button {
+  background: #62405d;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  padding: 5px;
+  margin-right: 7px;
+}
+.panel-tabs {
+  display: flex;
+  border-bottom: 1px solid #ffffff16;
+  margin-bottom: 18px;
+  gap: 14px;
+}
+.panel-tabs button {
+  font-size: 12px;
+  padding: 8px 10px 12px;
+  color: #a899b3;
+}
+.panel-tabs button.active {
+  color: #ffacd0;
+  border-bottom: 2px solid #ff70ab;
+}
+.panel-description {
+  font-size: 10px;
+  margin: 0 0 18px;
+  color: #b3a1bc;
+}
+.settings [hidden] {
+  display: none !important;
+}
+.settings output {
+  float: right;
+  color: #f4a3c7;
+}
+.settings #strength {
+  display: block;
+  width: 100%;
+  margin: 14px 0 22px;
+}
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.form-actions button,
+.secondary-button {
+  background: #673955;
+  border: 1px solid #ed82b035;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 11px;
+}
+.form-actions button:last-child {
+  background: #302438;
+  color: #baabc5;
+}
+.secondary-button {
+  width: 100%;
+}
+button:disabled,
+select:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+.library-row {
+  padding: 15px 0;
+  border-top: 1px solid #ffffff14;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.library-row:first-child {
+  margin-top: 20px;
+}
+.library-row > div:first-child {
+  min-width: 0;
+}
+.library-row b {
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.library-row small {
+  font-size: 9px;
+  margin-top: 4px;
+}
+.library-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-content: center;
+  gap: 5px;
+  min-width: 70px;
+  max-width: 90px;
+}
+.library-actions button {
+  font-size: 10px;
+  background: #30283e;
+  padding: 5px 7px;
+  border-radius: 4px;
+}
+.library-actions button[data-song-remove] {
+  color: #db91a8;
+}
+.compression-help {
+  border-top: 1px solid #ffffff18;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+.compression-help summary {
+  font-size: 11px;
+  color: #d7bfdc;
+  cursor: pointer;
+}
+.compression-help p {
+  font-size: 10px;
+}
+.compression-help pre {
+  white-space: pre-wrap;
+  font-size: 11px;
+  color: #efbad8;
+  background: #110e19;
+  border-radius: 6px;
+  padding: 12px;
+  line-height: 1.7;
+}
+body.ui-hidden #app > :not(#viewport) {
+  display: none !important;
+}
+body.ui-hidden canvas {
+  cursor: default;
+}
+#walk-pad {
+  position: fixed;
+  bottom: 225px;
+  right: 25px;
+  z-index: 2;
+  text-align: center;
+  user-select: none;
+  touch-action: none;
+}
+#walk-pad[hidden] {
+  display: none;
+}
+#walk-pad button {
+  width: 38px;
+  height: 34px;
+  margin: 2px;
+  border-radius: 6px;
+  border: 1px solid #ffe8ff33;
+  background: #271c36d9;
+  color: #eac8e5;
+  touch-action: none;
+}
+#walk-pad button:active {
+  background: #82426b;
+}
+#walk-pad > span {
+  display: block;
+  font-size: 8px;
+  color: #ac9cb6;
+  margin-top: 7px;
+}
+#walk-pad .fly-keys {
+  display: none;
+}
+#walk-pad.flying .fly-keys {
+  display: block;
+}
+#walk-pad .fly-keys button {
+  width: 58px;
+  font-size: 10px;
+}
+canvas {
+  touch-action: none;
+}
+.camera-select select {
+  max-width: 150px;
+}
+.help {
+  line-height: 1.9;
+}
+.brand small {
+  letter-spacing: 1.2px;
+}
+.eyebrow {
+  letter-spacing: 2px;
+}
+.member small {
+  letter-spacing: 0;
+}
+.members {
+  width: 150px;
+}
+@media (max-width: 700px) {
+  nav {
+    gap: 10px;
+  }
+  .nav-action {
+    font-size: 10px;
+  }
+  .live-pill {
+    display: none;
+  }
+  .settings {
+    width: min(360px, 92vw);
+    max-height: calc(100dvh - 92px);
+    top: 76px;
+  }
+  .camera-select select {
+    max-width: 132px;
+  }
+  .control-deck {
+    gap: 8px;
+  }
+  .deck-right {
+    min-width: 0;
+  }
+  .brand small {
+    font-size: 6px;
+  }
+  .title-block {
+    top: 104px;
+  }
+  .title-block p {
+    display: none;
+  }
+  .settings .panel-heading {
+    font-size: 15px;
+  }
+  #walk-pad {
+    right: 12px;
+    bottom: 270px;
+  }
+  #walk-pad button {
+    width: 32px;
+    height: 29px;
+  }
+  .library-row small {
+    font-size: 9px;
+  }
+  footer button {
+    font-size: 9px;
+  }
+}

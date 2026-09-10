@@ -1,0 +1,27 @@
+{
+  "errors": [],
+  "assets": [
+    {
+      "url": "http://localhost:4173/3D_model_optimized/kasumi.glb",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:4173/3D_model_optimized/arisa.glb",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:4173/3D_model_optimized/otae.glb",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:4173/3D_model_optimized/rimi.glb",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:4173/3D_model_optimized/saya.glb",
+      "status": 200
+    }
+  ],
+  "elapsed": "00:01",
+  "debugExposed": false
+}

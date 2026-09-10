@@ -1,0 +1,21 @@
+{
+  "unchanged": true,
+  "scored": {
+    "score": 1000,
+    "swings": 2,
+    "playing": true
+  },
+  "ended": {
+    "active": false,
+    "result": "本曲应援完成",
+    "detail": "Perfect 0 · Great 0 · Good 0 · Miss 12",
+    "mode": "firstperson",
+    "bpm": 180,
+    "offset": 0.23,
+    "sameContext": true,
+    "sameScene": true
+  },
+  "ignoredOutsideSoloAndInputs": true,
+  "autoNeverScores": true,
+  "errors": []
+}

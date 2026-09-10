@@ -1,0 +1,43 @@
+.song-info .micro {
+  display: none;
+}
+.song-info .playback-select select {
+  font-size: 10px;
+  font-weight: 400;
+  color: #efa7ce;
+  margin: 5px 0 0;
+  max-width: 195px;
+  border: 1px solid #c184a333;
+  border-radius: 4px;
+  padding: 3px 6px;
+  background: #20182c;
+}
+.transport-buttons {
+  gap: 17px;
+}
+@media (max-width: 700px) {
+  .song-info .playback-select select {
+    font-size: 9px;
+    max-width: 148px;
+    margin: 4px 0 0;
+    padding: 3px 4px;
+  }
+  .control-deck {
+    height: 174px;
+  }
+  .loading {
+    bottom: 239px;
+  }
+  .camera-label {
+    bottom: 270px;
+  }
+  .transport-buttons {
+    gap: 25px;
+  }
+  .song-info > div:last-child {
+    min-width: 0;
+  }
+  .song-info .micro {
+    display: none;
+  }
+}
