@@ -247,6 +247,6 @@ QA 测试播放、暂停、切歌、seek/restart、Auto align、机位、性能�
 
 ## AI 生成声明 / AI-Generated Content Disclosure
 
-本项目在开发过程中大量使用 AI 编程助手（扣子 Coze 编程 Agent）生成与迭代代码、文档和测试，由项目维护者审核、验收后发布。
+本项目在开发过程中大量使用 AI 编程助手生成与迭代代码、文档和测试，由项目维护者审核、验收后发布。
 
-This repository was developed with substantial assistance from an AI coding agent (Coze Coding Agent): most code, documentation, and tests are AI-generated, then reviewed and verified by the maintainer before publication. All third-party character names and model assets referenced on the page belong to their original rights holders; this is an unofficial fan experience.
+This repository was developed with substantial assistance from an AI coding agent: most code, documentation, and tests are AI-generated, then reviewed and verified by the maintainer before publication. All third-party character names and model assets referenced on the page belong to their original rights holders; this is an unofficial fan experience.
