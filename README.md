@@ -35,6 +35,14 @@ npm run preview
 - `Space` 在第一人称中挥棒，其他视角播放 / 暂停。`H` 或底部按钮 **隐藏全部界面**，包括提示、按钮和触控方向键。按 H / Esc 或双击画面（手机双点）恢复。未隐藏时可用手机方向键移动；隐藏后仍可拖动转头和挥棒。
 - 切后台自动暂停，回来手动继续。
 
+## 入场与实验性音频
+
+演出设置 → **入场动画**，默认关闭。开启后，在新曲起点播放约 3.6 秒镜头推进与渐亮，再真正开始歌曲。动画期间音乐保持暂停，BPM 网格不提前运行；取消、暂停、切歌、切换视角或后台都会取消入场。中途续播跳过入场。如设备限制延迟播放，按提示再点击播放即可。
+
+演出设置 → **实验性沉浸音频**：关闭 / 轻混响 / 中混响。只在第一人称生效，提供轻度房间混响、基于位置和朝向的左右声像与适度距离衰减。关闭或离开第一人称时平滑回到原始音频，仍只有一个播放器和 AudioContext，不改变音频文件或节拍时间轴。效果具有设备差异，建议使用耳机体验。
+
+播放、暂停和前后曲使用 SVG 图标，避免手机 Emoji 替换。操作界面不允许文本误选，输入框、说明和配置代码仍可选择复制。
+
 ## 同步机制与边界
 
 ### 歌曲播放模式
@@ -92,6 +100,20 @@ Auto align 仅按需运行，分析最多前 90 秒，但需要暂时解码完�
 
 新增 GLB 后运行 `npm run optimize` 和 `npm run manifest`，只更新可切换模型目录；在阵容面板选择新玩偶即可。岗位位置、乐器与律动参数仍由 stage-slots.json 管理；只有手动编辑此文件才会增减岗位。扫描优先采用优化路径，已删除原文件的旧索引不会因残留优化文件复活。替换 manifest 即可换乐队；新舞台可替换 Stage 实现。
 
+### 网页导入角色与压缩副本
+
+右上角 **阵容 → 导入本地角色 / 生成压缩副本**：
+
+1. 选择 GLB、PNG、WebP 或 JPG，查看大小与资源分析。
+2. 点击「分析后预览」，可拖动查看；GLB 显示三角面、网格、材质、纹理尺寸、动画与骨骼数量。
+3. 选择已有舞台岗位，点击「保存并使用」。新增角色只进入可选目录，**不新增岗位**。
+
+角色文件和名称保存在当前浏览器的 IndexedDB，刷新恢复，不上传到服务器。删除本地角色会将使用它的岗位留空，不删除磁盘原文件。清理网站数据会丢失本地导入；不同地址/端口属于不同存储空间。
+
+「生成压缩副本并下载」在独立 Worker 中执行 Meshopt + 最长边 1024 的 WebP 纹理转换，随时可取消。原文件、当前舞台和已保存角色不会被自动替换；下载后可重新导入压缩副本。真实约 25 MB GLB 实测生成约 1.60 MB。不同模型结果不同，不承诺一定更小；暂不支持所有第三方压缩扩展，失败时可使用原有 CLI 工具。文件应为缓冲区与图片内嵌的 GLB，导入不会读取外部 URI。
+
+预览只保留一个低分辨率画布，清除时释放；大模型仍可能占用较多 RAM/GPU，分析提示后可自行选择是否继续。网页压缩使用 OffscreenCanvas / Web Worker，不兼容的浏览器可改用 CLI；原始素材请自行保留。
+
 ### 添加图片角色
 
 将 PNG / WebP / JPG 放入项目根目录的 `characters/`，在 `src/config/characters.json` 数组中追加：
@@ -105,7 +127,7 @@ Auto align 仅按需运行，分析最多前 90 秒，但需要暂时解码完�
 }
 ```
 
-刷新后在阵容面板替换任意现有岗位。图片是有透视、深度和灯光的双面 3D 平面，轻柔朝向镜头，复用玩偶的挤压、拉伸与摇摆。推荐透明 PNG / WebP，裁掉脚底透明留白以免视觉浮空；JPG 的矩形背景会保留。最长边在上传 GPU 前限制为 2048，但原图解码仍有内存峰值，建议提前缩小超大图片。当前通过文件与配置添加，尚未提供网页角色导入面板。
+刷新后在阵容面板替换任意现有岗位。图片是有透视、深度和灯光的双面 3D 平面，轻柔朝向镜头，复用玩偶的挤压、拉伸与摇摆。推荐透明 PNG / WebP，裁掉脚底透明留白以免视觉浮空；JPG 的矩形背景会保留。最长边在上传 GPU 前限制为 2048，但原图解码仍有内存峰值，建议提前缩小超大图片。也可使用上方网页导入面板。
 
 ### 第一人称应援
 
@@ -192,7 +214,7 @@ GLB 角色不一定需要自己建模，也可以使用 AI 3D 生成服务准备
 
 资源准备流程：准备角色 → 获得 GLB → 压缩并放入资源目录 → 准备音频 → 查询 / 测量 BPM → 调整 offset → 更新 characters / songs 配置 → 启动演出。
 
-当前支持 GLB / 图片角色、第一人称现场视角、玩家手动 / 自动应援棒和观众应援棒。网页角色导入、更多挥舞动作与网页模型压缩留待后续开发。
+当前支持 GLB / 图片角色、第一人称现场视角、玩家手动 / 自动应援棒和观众应援棒。已支持网页角色导入、预览与独立压缩副本；多种挥舞动作按当前方向跳过。
 
 ## 性能档位
 
@@ -205,10 +227,15 @@ GLB 角色不一定需要自己建模，也可以使用 AI 3D 生成服务准备
 
 触屏默认 Low，桌面默认 High。档位共用 1024² 人物纹理和约 50 万三角面，不重新下载模型。弱 GPU 后续可增加简化 LOD。手机竖屏后移取景保留五人。
 
+## 场景扩展
+
+CiRCLE 已通过 SceneDefinition 接口注册，原舞台和全局资源没有强制搬迁。新场景可在自己的模块中定义环境、岗位、相机、灯光、观众、可选入场和音频环境，再注册启动。无需修改 BeatClock、角色、应援棒或节奏挑战。字段、生命周期与新增步骤见 [场景接口说明](src/scenes/README.md)。
+
 ## 架构
 
 ```text
-src/core/           App lifecycle, renderer, assets, disposal
+src/core/           App lifecycle, renderer, assets, cancellable intro, disposal
+src/scenes/         Scene registry and CiRCLE adapter
 src/audio/          Stream transport, playlist, master clock, FFT, alignment, beat grid
 src/characters/     Foot pivots, sequential loading, deterministic beat motion
 src/camera/         Shot definitions, bar-aware director, eased transitions, controls
@@ -224,7 +251,7 @@ reports/            Metrics, audits, desktop/mobile screenshots
 
 ## 验证与续接
 
-`npm test` 当前 18 项，覆盖长时间/seek 网格、变形与贴地、GLB/图片引用、播放列表、岗位目录分离、安全可见性恢复、挥棒帧率无关与节奏判定边界。
+`npm test` 当前 21 项，覆盖长时间/seek 网格、变形与贴地、GLB/图片引用、播放列表、岗位目录分离、安全可见性恢复、挥棒帧率无关与节奏判定边界。
 
 先启动 dev，再在安装了 Chrome 的机器运行：
 
@@ -235,9 +262,12 @@ node scripts/revision-qa.mjs
 node scripts/playlist-qa.mjs
 node scripts/instruments-qa.mjs
 node scripts/solo-image-qa.mjs
+node scripts/entrance-audio-qa.mjs
+node scripts/audio-scene-qa.mjs
+node scripts/ugc-qa.mjs
 ```
 
-生产检查：先运行 `npm run preview -- --port 4173`，再执行 `node scripts/preview-qa.mjs`。当前 `dist` 约 21.56 MB（包含第六个可选 GLB，首屏仍只加载五岗位），含两首音轨与本地字体；五个优化 GLB 均通过 HTTP 200 和播放 smoke test。
+生产检查：先运行 `npm run preview -- --port 4173`，再执行 `node scripts/preview-qa.mjs`。当前 `dist` 约 21.9 MB（包含第六个可选 GLB，首屏仍只加载五岗位），含两首音轨与本地字体；五个优化 GLB 均通过 HTTP 200 和播放 smoke test。
 
 QA 测试播放、暂停、切歌、seek/restart、Auto align、机位、性能、竖屏；容错故意让一个模型 404，确认其余四人和音频继续。修订版测试遍历实际模型顶点测量贴地误差，验证模型资源复用、空位与阵容持久化、第一人称移动、自由升降、零覆盖层隐藏/恢复、本地音频上传/播放/编辑/删除/持久化。结果与截图在 reports/。桌面 headless Chrome 实测不等于真实手机 GPU / Safari 验证。
 
@@ -250,3 +280,5 @@ QA 测试播放、暂停、切歌、seek/restart、Auto align、机位、性能�
 本项目在开发过程中大量使用 AI 编程助手生成与迭代代码、文档和测试，由项目维护者审核、验收后发布。
 
 This repository was developed with substantial assistance from an AI coding agent: most code, documentation, and tests are AI-generated, then reviewed and verified by the maintainer before publication. All third-party character names and model assets referenced on the page belong to their original rights holders; this is an unofficial fan experience.
+
+Worker 构建中 glTF Transform 的未使用 NodeIO 分支可能产生 node:fs / node:path 浏览器 externalized 提示；本项目使用 WebIO，开发与生产 Worker 均已实际执行验证。

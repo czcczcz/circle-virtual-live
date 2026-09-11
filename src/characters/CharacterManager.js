@@ -5,8 +5,9 @@ import { beatMotion } from "./BeatMotion.js";
 import { collectSupports, groundMotion, STAGE_Y } from "./GroundContact.js";
 
 export class CharacterManager {
-  constructor(scene, assets, members) {
+  constructor(scene, assets, members, stageHeight = STAGE_Y) {
     this.scene = scene;
+    this.stageHeight = stageHeight;
     this.assets = assets;
     this.members = members;
     this.characters = [];
@@ -20,11 +21,14 @@ export class CharacterManager {
       if (this.cancelled) return;
       report(`正在加载 ${member.name}`, i / this.members.length);
       try {
-        await this.replace(member.id, member, (p) =>
-          report(
-            `正在加载 ${member.name} · ${Math.round(p * 100)}%`,
-            (i + p) / this.members.length,
-          ),
+        await this.replace(
+          member.id,
+          { ...member, id: member.modelId || member.id },
+          (p) =>
+            report(
+              `正在加载 ${member.name} · ${Math.round(p * 100)}%`,
+              (i + p) / this.members.length,
+            ),
         );
         report(`${member.name} 已就绪`, (i + 1) / this.members.length);
       } catch {
@@ -74,7 +78,7 @@ export class CharacterManager {
       const supports = collectSupports(normalized, slot.height || 2.6);
       const root = new T.Group();
       root.position.fromArray(slot.position);
-      root.position.y += STAGE_Y;
+      root.position.y += this.stageHeight;
       root.rotation.y = source.rotation || 0;
       const motion = new T.Group();
       motion.add(normalized);

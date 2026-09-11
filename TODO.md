@@ -59,3 +59,12 @@ Read PROJECT_STATUS.md for verified state; never overwrite original assets.
 - [x] 第二阶段最终回归：18测试、原Live/容错/阵容/歌曲库/播放列表/3阶段专项/生产预览
 - [x] README普通操作与PROJECT_STATUS开发者续接记录分离
 - [ ] 后续可选：网页角色导入、文件分析与预览（当前角色通过目录+配置添加）
+
+## 2026-09-11
+- [x] A SVG图标与移动防误选
+- [x] B 可取消的独立Intro门控
+- [x] C 可完全旁路的实验音频
+- [x] D CiRCLE最小SceneDefinition适配
+- [x] 追加Priority4：网页角色导入/分析/预览/使用/保存/Worker压缩副本
+- [ ] 最终接口/音频/生产与全功能回归、文档收尾
+- 原Priority3多动作与组合键：按用户指示跳过

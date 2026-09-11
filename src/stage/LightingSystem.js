@@ -1,7 +1,9 @@
 import * as T from "three";
 export class LightingSystem {
-  constructor(scene) {
+  constructor(scene, options = {}) {
+    options ||= {};
     this.scene = scene;
+    this.palette = options.palette || [0.92, 0.62, 0.78, 0.04];
     this.spots = [];
     this.beams = [];
     this.ambient = new T.HemisphereLight(0xbab9ff, 0x46303a, 1.5);
@@ -50,8 +52,11 @@ export class LightingSystem {
     });
   }
   update(beat, bands, playing) {
-    const palette = [0.92, 0.62, 0.78, 0.04];
-    const hue = palette[((beat.phrase % 4) + 4) % 4];
+    const palette = this.palette;
+    const hue =
+      palette[
+        ((beat.phrase % palette.length) + palette.length) % palette.length
+      ];
     const pulse = playing ? Math.exp(-beat.phase * 6) : 0.05;
     this.spots.forEach((s, i) => {
       s.color.setHSL((hue + i * 0.09) % 1, 0.7, 0.65);

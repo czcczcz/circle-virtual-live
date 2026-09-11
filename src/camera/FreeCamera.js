@@ -1,8 +1,17 @@
 import * as T from "three";
 // Drag-to-look deliberately avoids pointer lock: it works in embedded browsers and on touch.
 export class FreeCamera {
-  constructor(camera, canvas) {
+  constructor(camera, canvas, options = {}) {
+    options ||= {};
     this.camera = camera;
+    this.options = options;
+    this.bounds = {
+      x: [-6.6, 6.6],
+      z: [3.1, 13],
+      freeZ: [-3.4, 13],
+      y: [0.8, 6.3],
+      ...options.bounds,
+    };
     this.canvas = canvas;
     this.enabled = false;
     this.keys = new Set();
@@ -73,6 +82,11 @@ export class FreeCamera {
       mode === "firstperson" ? 1.65 : 3.3,
       mode === "firstperson" ? 5.5 : 9,
     );
+    this.camera.position.fromArray(
+      mode === "firstperson"
+        ? this.options.spawn || [0, 1.65, 5.5]
+        : this.options.freeSpawn || [0, 3.3, 9],
+    );
     this.yaw = 0;
     this.pitch = mode === "firstperson" ? 0.075 : -0.12;
   }
@@ -102,21 +116,18 @@ export class FreeCamera {
         ((this.keys.has("KeyE") ? 1 : 0) - (this.keys.has("KeyQ") ? 1 : 0)) *
         2.8 *
         dt;
-    else this.camera.position.y = 1.65;
+    else this.camera.position.y = this.options.eyeHeight || 1.65;
     this.camera.position.x = T.MathUtils.clamp(
       this.camera.position.x,
-      -6.6,
-      6.6,
+      ...this.bounds.x,
     );
     this.camera.position.z = T.MathUtils.clamp(
       this.camera.position.z,
-      this.mode === "firstperson" ? 3.1 : -3.4,
-      13,
+      ...(this.mode === "firstperson" ? this.bounds.z : this.bounds.freeZ),
     );
     this.camera.position.y = T.MathUtils.clamp(
       this.camera.position.y,
-      0.8,
-      6.3,
+      ...this.bounds.y,
     );
   }
   dispose() {

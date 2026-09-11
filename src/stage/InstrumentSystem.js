@@ -5,14 +5,14 @@ import { STAGE_Y } from "../characters/GroundContact.js";
 // Instruments belong to stage slots, not the selected mesh. A replacement model can play
 // any part; clearing a slot also clears its equipment. Geometry is entirely procedural.
 export class InstrumentSystem {
-  constructor(scene, members) {
+  constructor(scene, members, stageHeight = STAGE_Y) {
     this.visible = true;
     this.groups = new Map();
     this.materials = new Map();
     for (const member of members) {
       const g = new T.Group();
       g.position.fromArray(member.position);
-      g.position.y += STAGE_Y;
+      g.position.y += stageHeight;
       g.name = "instrument-" + member.id;
       scene.add(g);
       this.groups.set(member.id, g);

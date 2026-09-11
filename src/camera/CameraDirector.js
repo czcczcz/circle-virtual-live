@@ -13,22 +13,23 @@ export const shots = {
   orbit: { label: "动态环绕", p: [4, 4.2, 10], t: [0, 2, -0.5] },
 };
 export class CameraDirector {
-  constructor(camera, canvas) {
+  constructor(camera, canvas, options = {}) {
     this.camera = camera;
+    this.shots = options.anchors || shots;
     this.controls = new OrbitControls(camera, canvas);
-    this.free = new FreeCamera(camera, canvas);
+    this.free = new FreeCamera(camera, canvas, options.player);
     this.controls.enableDamping = true;
     this.controls.maxPolarAngle = Math.PI * 0.49;
     this.controls.minDistance = 4;
     this.controls.maxDistance = 22;
-    this.controls.target.set(0, 2, -0.6);
+    this.controls.target.fromArray(this.shots.wide.t);
     this.controls.enabled = false;
     this.mode = "auto";
     this.shot = "wide";
     this.previousBar = -1;
     this.lastSwitch = -100;
-    this.target = new T.Vector3(0, 2, -0.6);
-    this.camera.position.fromArray(shots.wide.p);
+    this.target = new T.Vector3(...this.shots.wide.t);
+    this.camera.position.fromArray(this.shots.wide.p);
     this.camera.lookAt(this.target);
     this.progress = 1;
     this.sequence = [
@@ -42,6 +43,12 @@ export class CameraDirector {
       "orbit",
       "low",
     ];
+    this.sequence = (
+      options.sequence ||
+      this.sequence.concat(
+        Object.keys(this.shots).filter((id) => !this.sequence.includes(id)),
+      )
+    ).filter((id) => this.shots[id]);
     this.cutIndex = 0;
   }
   setMode(mode) {
@@ -63,6 +70,7 @@ export class CameraDirector {
     else this.select(this.shot);
   }
   select(shot) {
+    if (!this.shots[shot]) return;
     this.shot = shot;
     this.fromPosition = this.camera.position.clone();
     this.fromTarget = this.target.clone();
@@ -96,7 +104,7 @@ export class CameraDirector {
         this.previousBar = beat.bar;
       }
     }
-    const shot = shots[this.shot];
+    const shot = this.shots[this.shot];
     const position = new T.Vector3(...shot.p),
       target = new T.Vector3(...shot.t);
     if (this.shot === "sweep")

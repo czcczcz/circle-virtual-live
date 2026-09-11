@@ -1,3 +1,6 @@
+import { CharacterLibrary } from "../characters/CharacterLibrary.js";
+import { resolveScene } from "../scenes/registry.js";
+import { IntroSequence } from "./IntroSequence.js";
 import { SoloInteraction } from "../interaction/SoloInteraction.js";
 import * as T from "three";
 import { AssetManager, disposeTree } from "./AssetManager.js";
@@ -7,21 +10,46 @@ import { SongLibrary } from "../audio/SongLibrary.js";
 import { LibraryControls } from "../ui/LibraryControls.js";
 import { BeatClock } from "../audio/BeatClock.js";
 import { CharacterManager } from "../characters/CharacterManager.js";
-import { Stage } from "../stage/Stage.js";
-import { InstrumentSystem } from "../stage/InstrumentSystem.js";
-import { LightingSystem } from "../stage/LightingSystem.js";
-import { AudienceSystem } from "../audience/AudienceSystem.js";
 import { CameraDirector } from "../camera/CameraDirector.js";
 import { LiveUI } from "../ui/LiveUI.js";
 import { presets, defaultPreset } from "../config/presets.js";
-import { members, models, songs } from "../config/manifest.js";
+import { models as defaultModels, songs } from "../config/manifest.js";
 export class App extends EventTarget {
-  constructor() {
+  constructor(
+    definition = resolveScene(
+      new URLSearchParams(location.search).get("scene"),
+    ),
+  ) {
     super();
-    this.ui = new LiveUI(songs, members, models);
+    this.definition = definition;
+    const models = (this.models = [
+      ...defaultModels,
+      ...(definition.models || []).map((m) => ({
+        ...m,
+        model: m.model || m.src,
+      })),
+    ]);
+    this.bandKey =
+      definition.id === "circle" ? "circle-band" : `live-band-${definition.id}`;
+    const members = (this.members = definition.performerSlots.map((slot) => ({
+      ...models.find((m) => m.id === (slot.modelId || slot.id)),
+      ...slot,
+    })));
+    this.ui = new LiveUI(
+      songs,
+      members,
+      models,
+      definition.cameraAnchors,
+      definition.presentation,
+    );
     this.scene = new T.Scene();
-    this.scene.background = new T.Color(0x090910);
-    this.scene.fog = new T.FogExp2(0x0e0b19, 0.034);
+    this.scene.background = new T.Color(
+      definition.environment?.background ?? 0x090910,
+    );
+    this.scene.fog = new T.FogExp2(
+      definition.environment?.fogColor ?? 0x0e0b19,
+      definition.environment?.fogDensity ?? 0.034,
+    );
     this.renderer = new T.WebGLRenderer({
       antialias: true,
       powerPreference: "high-performance",
@@ -38,22 +66,39 @@ export class App extends EventTarget {
       70,
     );
     this.assets = new AssetManager();
-    this.audio = new AudioManager();
+    this.audio = new AudioManager(definition.audioEnvironment);
     this.songLibrary = new SongLibrary(songs);
     this.beat = new BeatClock();
-    this.stage = new Stage(this.scene);
-    this.instruments = new InstrumentSystem(this.scene, members);
-    this.lighting = new LightingSystem(this.scene);
-    this.audience = new AudienceSystem(this.scene);
-    this.characters = new CharacterManager(this.scene, this.assets, members);
+    this.sceneModule = definition.create({
+      world: this.scene,
+      members,
+      definition,
+    });
+    // Only these adapters enter the engine; a plugin's dispose must never replace App.dispose.
+    const { stage, instruments, lighting, audience } = this.sceneModule;
+    Object.assign(this, { stage, instruments, lighting, audience });
+    this.characters = new CharacterManager(
+      this.scene,
+      this.assets,
+      members,
+      definition.stageHeight,
+    );
     let showInstruments = true;
     try {
       showInstruments = localStorage.getItem("circle-instruments") !== "hide";
     } catch {}
     this.setInstrumentsVisible(showInstruments);
-    this.director = new CameraDirector(this.camera, this.renderer.domElement);
+    this.director = new CameraDirector(this.camera, this.renderer.domElement, {
+      anchors: definition.cameraAnchors,
+      sequence: definition.cameraSequence,
+      player: definition.player,
+    });
     this.solo = new SoloInteraction(this);
+    this.intro = new IntroSequence(this, definition.introSequence || null);
+    this.addEventListener("songleaving", () => this.intro.cancel());
     this.playlist = new PlaylistManager({
+      beforePlay: () => this.intro.beforePlay(),
+      cancelPending: () => this.intro.cancel(),
       audio: this.audio,
       songs,
       activate: (index) => this.activateSong(index),
@@ -80,6 +125,7 @@ export class App extends EventTarget {
     this.disposed = false;
     this.bind();
     this.libraryControls = new LibraryControls(this, songs);
+    this.characterLibrary = new CharacterLibrary(this, models);
     this.quality(defaultPreset());
     this.song(0);
     const generation = this.audio.generation;
@@ -120,21 +166,24 @@ export class App extends EventTarget {
           this.ui.$("member-" + c.member.id)?.classList.add("ready");
       })
       .then(async () => {
+        await this.characterLibrary.ready;
         if (this.disposed) return;
         let saved = {};
         try {
-          saved = JSON.parse(localStorage.getItem("circle-band") || "{}");
+          saved = JSON.parse(localStorage.getItem(this.bandKey) || "{}");
         } catch {}
         for (const member of members) {
           if (
             Object.hasOwn(saved, member.id) &&
-            saved[member.id] !== member.id
+            saved[member.id] !== (member.modelId || member.id)
           ) {
             try {
               await this.characters.replace(
                 member.id,
                 models.find((m) => m.id === saved[member.id]) ||
-                  (saved[member.id] === "" ? null : member),
+                  (saved[member.id] === ""
+                    ? null
+                    : { ...member, id: member.modelId || member.id }),
               );
             } catch {}
           }
@@ -156,10 +205,20 @@ export class App extends EventTarget {
       });
   }
   bind() {
+    const members = this.members,
+      models = this.models;
     const ui = this.ui;
     this.toggle = async () => {
       return this.playlist.toggle();
     };
+    ui.on("immersive-audio", "change", (e) => {
+      this.audio.immersiveMode = e.target.value;
+    });
+    ui.on("intro-mode", "change", (e) => {
+      this.intro.enabled = e.target.value === "on";
+      if (!this.intro.enabled && this.intro.active) this.playlist.pause();
+    });
+    ui.on("cancel-intro", "click", () => this.playlist.pause());
     ui.on("start", "click", this.toggle);
     ui.on("play", "click", this.toggle);
     ui.on("restart", "click", () => this.playlist.restart());
@@ -179,12 +238,14 @@ export class App extends EventTarget {
       (e) => (this.audio.media.volume = Number(e.target.value)),
     );
     ui.on("seek", "input", (e) => {
+      if (this.intro.active) this.playlist.pause();
       if (Number.isFinite(this.audio.media.duration))
         this.audio.seek(
           (Number(e.target.value) / 1000) * this.audio.media.duration,
         );
     });
     ui.on("camera", "change", (e) => {
+      if (this.intro.active) this.playlist.pause();
       this.director.setMode(e.target.value);
       ui.$("walk-pad").hidden = !["free", "firstperson"].includes(
         e.target.value,
@@ -250,9 +311,12 @@ export class App extends EventTarget {
         .forEach((s) => (s.disabled = true));
       try {
         for (const member of members) {
-          await this.characters.replace(member.id, member);
+          await this.characters.replace(member.id, {
+            ...member,
+            id: member.modelId || member.id,
+          });
           document.querySelector(`[data-slot="${member.id}"]`).value =
-            member.id;
+            member.modelId || member.id;
         }
         this.saveBand();
         this.updateRoster();
@@ -311,6 +375,10 @@ export class App extends EventTarget {
       ui.notify("歌曲加载失败，请选择其他歌曲。");
     });
     this.keydown = (e) => {
+      if (this.intro.active && e.key === "Escape") {
+        this.playlist.pause();
+        return;
+      }
       if (this.solo.keydown(e)) return;
       if (e.key === "Escape" && document.body.classList.contains("ui-hidden")) {
         ui.hideAll(false);
@@ -454,9 +522,27 @@ export class App extends EventTarget {
     this.stage.update(beat, bands);
     this.lighting.update(beat, bands, this.audio.running);
     this.audience.update(beat, this.audio.running);
-    this.director.update(beat, bands, dt, this.audio.running);
+    if (this.intro.active) this.intro.update(now);
+    else this.director.update(beat, bands, dt, this.audio.running);
     this.solo.update(beat, bands, now / 1000);
+    if (this.audio.routing) {
+      const source = new T.Vector3(
+        ...(this.audio.environment.source || [0, 2, -1]),
+      );
+      const delta = source.sub(this.camera.position),
+        distance = delta.length();
+      const right = new T.Vector3(1, 0, 0).applyQuaternion(
+        this.camera.quaternion,
+      );
+      this.audio.routing.update(
+        this.audio.immersiveMode,
+        this.director.mode === "firstperson",
+        delta.normalize().dot(right),
+        distance,
+      );
+    }
     this.renderer.render(this.scene, this.camera);
+    if (this.frames % 2 === 0) this.characterLibrary.update();
     if (this.frames++ % 12 === 0)
       this.ui.update(this.audio, beat, this.director, this.fps);
   }
@@ -464,6 +550,7 @@ export class App extends EventTarget {
     this.disposed = true;
     this.solo.dispose();
     this.characters.dispose();
+    this.characterLibrary.dispose();
     this.renderer.setAnimationLoop(null);
     window.removeEventListener("resize", this.resize);
     window.removeEventListener("keydown", this.keydown);
@@ -472,6 +559,7 @@ export class App extends EventTarget {
     this.playlist.dispose();
     this.songLibrary.dispose();
     this.director.dispose();
+    this.sceneModule.dispose?.();
     disposeTree(this.scene);
     this.renderer.dispose();
     clearTimeout(this.ui.toastTimer);
@@ -480,6 +568,7 @@ export class App extends EventTarget {
     this.renderer.domElement.removeEventListener("pointerup", this.tapEnd);
   }
   updateRoster() {
+    const members = this.members;
     for (const member of members) {
       const c = this.characters.characters.find(
         (c) => c.member.id === member.id,
@@ -499,6 +588,7 @@ export class App extends EventTarget {
     } catch {}
   }
   saveBand() {
+    const members = this.members;
     const selection = Object.fromEntries(
       members.map((m) => [
         m.id,
@@ -507,7 +597,7 @@ export class App extends EventTarget {
       ]),
     );
     try {
-      localStorage.setItem("circle-band", JSON.stringify(selection));
+      localStorage.setItem(this.bandKey, JSON.stringify(selection));
     } catch {
       this.ui.notify("当前阵容已更新，但浏览器无法保存设置。");
     }

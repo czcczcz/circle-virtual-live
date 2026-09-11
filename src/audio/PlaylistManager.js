@@ -20,8 +20,12 @@ export class PlaylistManager {
     activate,
     beforeLeave = () => {},
     onError = () => {},
+    beforePlay = () => true,
+    cancelPending = () => {},
   }) {
     this.audio = audio;
+    this.beforePlay = beforePlay;
+    this.cancelPending = cancelPending;
     this.songs = songs;
     this.activate = activate;
     this.beforeLeave = beforeLeave;
@@ -59,6 +63,14 @@ export class PlaylistManager {
   }
   async start(token = this.epoch) {
     try {
+      const gate = this.beforePlay();
+      const ready = gate?.then ? await gate : gate;
+      if (token !== this.epoch) return false;
+      if (!ready) {
+        this.wantsPlayback = false;
+        this.audio.pause();
+        return false;
+      }
       await this.audio.play();
       if (token !== this.epoch) return false;
       return true;
@@ -79,6 +91,7 @@ export class PlaylistManager {
     return this.start(token);
   }
   pause() {
+    this.cancelPending();
     ++this.epoch;
     this.wantsPlayback = false;
     this.audio.pause();
@@ -109,6 +122,7 @@ export class PlaylistManager {
     return this.select(next, { autoplay: true, reason: "continuation" });
   }
   dispose() {
+    this.cancelPending();
     ++this.epoch;
     this.wantsPlayback = false;
     this.audio.removeEventListener("ended", this.ended);

@@ -76,3 +76,97 @@
     font-size: 18px;
   }
 }
+
+.ui-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  pointer-events: none;
+}
+#app {
+  user-select: none;
+  -webkit-user-select: none;
+}
+#app
+  :is(
+    input,
+    textarea,
+    [contenteditable="true"],
+    pre,
+    code,
+    .help,
+    .compression-help p,
+    .panel-description,
+    #library-status
+  ) {
+  user-select: text;
+  -webkit-user-select: text;
+}
+button,
+select,
+input[type="range"],
+.ui-icon {
+  -webkit-touch-callout: none;
+}
+button {
+  touch-action: manipulation;
+}
+
+#intro-status {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  text-align: center;
+  display: grid;
+  gap: 14px;
+  color: white;
+}
+#intro-status button {
+  padding: 9px 20px;
+  border: 1px solid #ff8ac5;
+  border-radius: 20px;
+  background: #241529;
+  color: white;
+}
+#intro-status[hidden] {
+  display: none;
+}
+
+.character-import {
+  border: 1px solid #9b648644;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.character-import button {
+  padding: 8px;
+  border: 1px solid #ab709455;
+  background: #302239;
+  color: #ffe4f5;
+  border-radius: 5px;
+  margin: 4px 3px 5px 0;
+}
+.character-import pre {
+  font-size: 11px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.character-import small {
+  display: block;
+  line-height: 1.6;
+}
+#character-preview canvas {
+  max-width: 100%;
+  touch-action: none;
+  display: block;
+  margin: 8px auto;
+}
+
+#app :is(button, select, input[type="range"], input[type="file"]) {
+  user-select: none;
+  -webkit-user-select: none;
+}

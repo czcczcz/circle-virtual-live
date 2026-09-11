@@ -1,8 +1,11 @@
 import * as T from "three";
 export class AudienceSystem {
-  constructor(scene) {
+  constructor(scene, options = {}) {
+    options ||= {};
     this.group = new T.Group();
     scene.add(this.group);
+    this.group.position.fromArray(options.origin || [0, 0, 0]);
+    this.group.scale.setScalar(options.scale || 1);
     this.max = 160;
     this.dummy = new T.Object3D();
     this.people = new T.InstancedMesh(

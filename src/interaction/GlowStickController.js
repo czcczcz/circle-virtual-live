@@ -25,6 +25,7 @@ export function swingCurve(phase) {
 
 export class GlowStickController {
   constructor(camera) {
+    this.camera = camera;
     this.rig = new T.Group();
     this.rig.name = "PlayerGlowStick";
     camera.add(this.rig);
@@ -82,7 +83,15 @@ export class GlowStickController {
         : 0;
     const pose = now - this.manualStart < 0.48 ? manual : auto;
     const strength = 0.85 + bands.energy * 0.2;
-    this.rig.position.set(0.27, -0.32 + pose * 0.07, -0.63);
+    // Keep the existing first-person prop inside narrow portrait frustums.
+    const x = Math.min(
+      0.27,
+      0.63 *
+        Math.tan(T.MathUtils.degToRad(this.camera.fov / 2)) *
+        this.camera.aspect *
+        0.65,
+    );
+    this.rig.position.set(x, -0.32 + pose * 0.07, -0.63);
     this.rig.rotation.set(
       -0.22 - pose * 0.75 * strength,
       0,

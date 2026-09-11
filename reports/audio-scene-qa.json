@@ -1,0 +1,26 @@
+{
+  "audio": {
+    "bypassError": 0,
+    "leftRMS": 0.052963005870037314,
+    "rightRMS": 0.18358923628256163,
+    "peak": 0.26319485902786255
+  },
+  "scene": {
+    "slots": 1,
+    "height": 1.2,
+    "source": "kasumi",
+    "selected": "kasumi",
+    "eye": 1.8,
+    "camera": "测试全景",
+    "audio": [
+      1,
+      2,
+      0
+    ],
+    "intro": null,
+    "storage": "live-band-test-adapter",
+    "engineDisposed": true,
+    "extensionDisposed": true
+  },
+  "errors": []
+}

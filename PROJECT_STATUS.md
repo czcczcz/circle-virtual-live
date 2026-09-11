@@ -115,3 +115,9 @@ P3多动作/组合键和P4网页导入/分析/预览/压缩是可选后续，未
 生产dist22文件/21,556,496 bytes（含6个可选GLB），首屏请求5个GLB均200，音乐推进，生产调试入口关闭。预览首次检查服务已停止，重新启动4173（session4309）后通过；dev仍5173。
 已知边界：GLB合并乐器无法分割；图片脚底透明留白应先裁剪；图片源解码存在RAM峰值；蓝牙/设备输出延迟尚无独立输入校准；固定BPM/4拍，原曲offset未人工校准；实体Android/iOS/Safari未测试。鼠标/触摸轻点在释放时挥棒判定，明显拖动只转头；键盘Space在按下时判定。所有界面隐藏时包括挑战提示也隐藏，可H/Esc恢复。
 下一步（仅后续授权/优先级）：P3多种动作/组合键；P4网页角色导入→分析→预览→选岗位。浏览器压缩器继续延后，保留现有CLI工具与原文件。没有半成品阻塞当前Live。命令：npm run dev / npm test / npm run build；node scripts/instruments-qa.mjs / node scripts/solo-image-qa.mjs / node scripts/rhythm-qa.mjs。
+
+## 2026-09-11 第三轮 A–D + 追加 Priority 4 开发进度
+
+A：SVG传输图标与选择策略已完成，revision-qa通过，说明/pre/input仍可选。B：IntroSequence独立wall clock，PlaylistManager beforePlay门控；默认off，开启仅新曲0秒入场3.6秒，取消/切歌/暂停/后台撤销，完成才media.play。同一AudioContext在用户手势解锁，不播静音占位歌曲。C：ImmersiveAudio同一source→analyser→routing.input；Normal gain与FX gain互补80ms渐变；FX=StereoPanner + dry(.94/.87)/Convolver wet(.06/.13)，仅第一人称生效。Off最终normal=1/fx=0/input=1，time源未变。D：src/scenes/circle/scene.js封装原Stage等factory；registry按?scene=注册ID选择，App接收definition；固定岗位与models目录仍分离。stageHeight、cameraAnchors、player bounds/spawn、lighting palette、audience origin/scale、intro、audioEnvironment已接通，scene.assets使用模块相对?url导入，现有资源未搬迁。
+追加Priority4：CharacterLibrary使用独立IndexedDB files保存本地File/metadata；inspectFile解析GLB JSON，拒绝外部buffer/image URI；CharacterPreview共享AssetManager引用，独立260px DPR1画布，仅面板可见时渲染，清除释放。导入只增目录，选slot才replace；旧模型失败保留。Worker使用WebIO/meshopt+1024 WebP生成下载副本，不覆盖原File、不自动改变舞台。真实kasumi原GLB约25MB生成1,603,784 bytes副本，ugc-qa图片/GLB预览、应用、刷新恢复、删除、下载通过errors=[]。编译有gltf-transform未使用NodeIO内置模块externalized提示，WebIO Worker实际运行通过，不能声称无构建警告。
+下一步：离线音频sample验证旁路/声像，场景接口替身测试，最终回归/生产Worker测试，更新README和接口文档。当前核心21测试预期运行中，以最后输出为准。多动作Priority3明确跳过。

@@ -1,6 +1,9 @@
+import { ImmersiveAudio } from "./ImmersiveAudio.js";
 export class AudioManager extends EventTarget {
-  constructor() {
+  constructor(environment = {}) {
     super();
+    this.environment = environment || {};
+    this.immersiveMode = "off";
     this.media = new Audio();
     this.media.preload = "metadata";
     this.media.crossOrigin = "anonymous";
@@ -33,11 +36,12 @@ export class AudioManager extends EventTarget {
     if (this.context) return;
     this.context = new AudioContext();
     this.source = this.context.createMediaElementSource(this.media);
+    this.routing = new ImmersiveAudio(this.context, this.environment);
     this.analyser = this.context.createAnalyser();
     this.analyser.fftSize = 1024;
     this.analyser.smoothingTimeConstant = 0.8;
     this.source.connect(this.analyser);
-    this.analyser.connect(this.context.destination);
+    this.analyser.connect(this.routing.input);
     this.data = new Uint8Array(this.analyser.frequencyBinCount);
     this.sync();
   }
@@ -93,7 +97,7 @@ export class AudioManager extends EventTarget {
       this.analyser.fftSize = 1024;
       this.analyser.smoothingTimeConstant = 0.8;
       this.source.connect(this.analyser);
-      this.analyser.connect(this.context.destination);
+      this.analyser.connect(this.routing.input);
     }
   }
   seek(time) {
@@ -188,6 +192,7 @@ export class AudioManager extends EventTarget {
     this.media.load();
     this.source?.disconnect();
     this.analyser?.disconnect();
+    this.routing?.dispose();
     this.context?.close();
   }
 }
